@@ -26,15 +26,22 @@ document.getElementById("heart").addEventListener("click", function() {
     // Hide the heart and instruction
     document.querySelector(".heart-container").style.display = "none";
 
-    // Show the slideshow
-    document.querySelector(".slideshow").style.display = "block";
+    // Show the slideshow with smooth transition
+    let slideshow = document.querySelector(".slideshow");
+    slideshow.style.display = "block";
+    setTimeout(function() {
+        slideshow.style.opacity = 1; // Show the slideshow with transition
+    }, 100);
 
     // Start the slideshow
     showSlides();
     
     // Show the final message after the slideshow ends (after 9 seconds in this case)
     setTimeout(function() {
-        document.querySelector(".slideshow").style.display = "none";
-        document.getElementById("finalMessage").style.display = "block";
+        slideshow.style.opacity = 0; // Fade out the slideshow
+        setTimeout(function() {
+            slideshow.style.display = "none";
+            document.getElementById("finalMessage").style.display = "block";
+        }, 1000); // Ensure fade-out is complete before showing the message
     }, 9000); // Adjust this delay based on your slideshow duration
 });
