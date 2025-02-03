@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day</title>
+    <title>Valentine's Day</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Heart Button to Start Slideshow -->
-    <div class="heart-container">
-        <h1>Click the Heart to Start!</h1>
-        <div id="heart" class="heart"></div>
-    </div>
 
-    <!-- Music Player -->
-    <audio id="bg-music" autoplay loop>
-        <source src="Nisai.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+<!-- Initial Screen with Happy Valentine and Heart Button -->
+<div class="welcome-screen">
+    <h1>Happy Valentine's Day!</h1>
+    <div id="heart" class="heart-button">❤️</div>
+    <p>Click the heart to start!</p>
+</div>
 
-    <!-- Slideshow Section (Initially Hidden) -->
+<!-- Slideshow (Initially Hidden) -->
 <div class="slideshow" style="display: none;">
-     <div class="slide fade">
-         <img src="chea3.jpg" alt="First Time">
-         <p>First Time 💕</p>
-     </div>
-     <div class="slide fade">
-         <img src="chea1.jpg" alt="Holding Hands💙💜">
-         <p>Holding Hands💙💜</p>
-     </div>
-     <div class="slide fade">
-         <img src="chea2.jpg" alt="Random Cute Moment">
-         <p>Random Cute Moment 😍</p>
-     </div>
- </div>
-
-
-    <!-- Final Message -->
-    <div id="finalMessage" style="display: none;">
-        <h2>I Love You So Muchhhh ❤️</h2>
+    <div class="slide fade">
+        <img src="chea3.jpg" alt="First Time">
+        <p>First Time 💕</p>
     </div>
+    <div class="slide fade">
+        <img src="chea1.jpg" alt="Holding Hands💙💜">
+        <p>Holding Hands💙💜</p>
+    </div>
+    <div class="slide fade">
+        <img src="chea2.jpg" alt="Random Cute Moment">
+        <p>Random Cute Moment 😍</p>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<!-- Final Message -->
+<div id="finalMessage" style="display: none;">
+    <h2>I Love You So Muchhhh 💖</h2>
+</div>
+
+<!-- Audio for Music -->
+<audio id="backgroundMusic" loop>
+    <source src="Nisai.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<script src="script.js"></script>
 </body>
 </html>
