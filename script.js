@@ -1,5 +1,6 @@
 let slideIndex = 0;
 
+// Function to start the slideshow
 function showSlides() {
     let slides = document.getElementsByClassName("slide");
 
@@ -8,10 +9,10 @@ function showSlides() {
         slides[i].style.display = "none";
     }
 
-    // Increment the slideIndex to show the next slide
+    // Increment slideIndex
     slideIndex++;
     if (slideIndex > slides.length) {
-        slideIndex = 1; // Restart the slideshow after the last slide
+        slideIndex = 1; // Restart slideshow after last slide
     }
 
     // Show the current slide
@@ -21,25 +22,24 @@ function showSlides() {
     setTimeout(showSlides, 3000);
 }
 
-// Start the slideshow when the heart is clicked
+// Start slideshow when heart is clicked
 document.getElementById("heart").addEventListener("click", function() {
-    // Hide the heart and instruction
-    document.querySelector(".heart-container").style.display = "none";
+    // Hide the welcome screen
+    document.querySelector(".welcome-screen").style.display = "none";
 
-    // Show the slideshow immediately
+    // Show the slideshow
     let slideshow = document.querySelector(".slideshow");
     slideshow.style.display = "block";
-    slideshow.style.opacity = 1; // Ensure the slideshow is visible
-
-    // Start the slideshow
+    
+    // Start slideshow
     showSlides();
     
-    // Show the final message after the slideshow ends (after 9 seconds in this case)
+    // Start playing the music
+    document.getElementById("backgroundMusic").play();
+    
+    // Show final message after slideshow ends
     setTimeout(function() {
-        slideshow.style.opacity = 0; // Fade out the slideshow
-        setTimeout(function() {
-            slideshow.style.display = "none";
-            document.getElementById("finalMessage").style.display = "block";
-        }, 1000); // Ensure fade-out is complete before showing the message
-    }, 9000); // Adjust this delay based on your slideshow duration
+        slideshow.style.display = "none"; // Hide slideshow
+        document.getElementById("finalMessage").style.display = "block"; // Show final message
+    }, 9000); // Total slideshow duration (3 seconds * number of slides)
 });
