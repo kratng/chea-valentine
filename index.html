@@ -12,30 +12,33 @@
         <h1>Click the Heart to Start!</h1>
         <div id="heart" class="heart"></div>
     </div>
-    
-    <div class="slideshow">
+
+    <!-- Music Player -->
+    <audio id="bg-music" autoplay loop>
+        <source src="Nisai.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Slideshow Section (Initially Hidden) -->
+    <div class="slideshow" style="display: none;">
         <div class="slide fade">
             <img src="chea3.jpg" alt="First Time">
             <p>First Time 💕</p>
         </div>
         <div class="slide fade">
-            <img src="chea1.jpg" alt="holding hands💙💜">
-            <p>holding hands💙💜</p>
+            <img src="chea1.jpg" alt="Holding Hands💙💜">
+            <p>Holding Hands💙💜</p>
         </div>
         <div class="slide fade">
             <img src="chea2.jpg" alt="Random Cute Moment">
             <p>Random Cute Moment 😍</p>
         </div>
     </div>
+
     <!-- Final Message -->
     <div id="finalMessage" style="display: none;">
         <h2>I Love You So Muchhhh ❤️</h2>
     </div>
-    <!-- Music Player -->
-    <audio autoplay loop>
-        <source src="Nisai.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
 
     <script src="script.js"></script>
 </body>
