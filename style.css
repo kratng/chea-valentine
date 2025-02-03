@@ -1,68 +1,45 @@
+/* Basic Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffcccb; /* Soft pink background */
     text-align: center;
-    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    font-size: 2em;
-    color: #e63946;
-    margin-top: 20px;
+h1, p {
+    color: #fff;
 }
 
-.heart-container {
+.welcome-screen {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
 }
 
-.heart {
-    width: 100px;
-    height: 100px;
-    background-color: #e63946;
-    transform: rotate(-45deg);
-    margin-top: 20px;
+/* Heart Button Animation */
+#heart {
+    font-size: 80px;
     cursor: pointer;
-    position: relative;
-    transition: transform 0.3s;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
 }
 
-.heart:before,
-.heart:after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #e63946;
+p {
+    font-size: 18px;
 }
 
-.heart:before {
-    top: -50px;
-    left: 0;
-}
-
-.heart:after {
-    left: 50px;
-    top: 0;
-}
-
-.heart:hover {
-    transform: scale(1.2) rotate(-45deg);
-}
-
+/* Slideshow Styles */
 .slideshow {
     position: relative;
     max-width: 100%;
     margin: auto;
     text-align: center;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    display: none;
+    padding-top: 50px; /* Add some padding at the top for better positioning */
 }
 
 .slide {
@@ -88,8 +65,32 @@ h1 {
     border-radius: 5px;
 }
 
+/* Animation for Heart */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Fade effect for Slideshow */
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Final Message Styles */
 #finalMessage {
-    font-size: 2em;
-    color: #e63946;
-    margin-top: 50px;
+    display: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 10px;
 }
