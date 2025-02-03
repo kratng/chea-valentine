@@ -26,12 +26,10 @@ document.getElementById("heart").addEventListener("click", function() {
     // Hide the heart and instruction
     document.querySelector(".heart-container").style.display = "none";
 
-    // Show the slideshow with smooth transition
+    // Show the slideshow immediately
     let slideshow = document.querySelector(".slideshow");
     slideshow.style.display = "block";
-    setTimeout(function() {
-        slideshow.style.opacity = 1; // Show the slideshow with transition
-    }, 100);
+    slideshow.style.opacity = 1; // Ensure the slideshow is visible
 
     // Start the slideshow
     showSlides();
