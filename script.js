@@ -1,18 +1,27 @@
-function playMusicAndShowSlideshow() {
-  // Play music
-  const music = document.getElementById('valentine-music');
-  music.play();
+let slideIndex = 0;
 
-  // Show slideshow
-  const slideshow = document.getElementById('slideshow');
-  slideshow.style.display = 'block';
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
 
-  // Start slideshow animation
-  let currentIndex = 0;
-  const images = slideshow.getElementsByTagName('img');
-  setInterval(() => {
-    images[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].style.display = 'block';
-  }, 3000); // Change image every 3 seconds
+    // Hide all slides initially
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // Increment the slideIndex to show the next slide
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1; // Restart the slideshow after the last slide
+    }
+
+    // Show the current slide
+    slides[slideIndex - 1].style.display = "block"; // Slide number is one less than the index
+
+    // Change slide every 3 seconds
+    setTimeout(showSlides, 3000);
 }
+
+// Start the slideshow when the page loads
+window.onload = function () {
+    showSlides();
+};
