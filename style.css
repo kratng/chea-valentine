@@ -1,96 +1,57 @@
-/* Basic Styles */
+/* style.css */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffcccb; /* Soft pink background */
+    background-color: #ffcccb;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-h1, p {
-    color: #fff;
-}
-
-.welcome-screen {
+.card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    text-align: center;
 }
 
-/* Heart Button Animation */
-#heart {
-    font-size: 80px;
-    cursor: pointer;
-    margin-top: 20px;
-    animation: bounce 1s infinite;
-}
-
-p {
-    font-size: 18px;
-}
-
-/* Slideshow Styles */
-.slideshow {
+.card {
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     position: relative;
-    max-width: 100%;
-    margin: auto;
-    text-align: center;
-    display: none;
-    padding-top: 50px; /* Add some padding at the top for better positioning */
 }
 
-.slide {
-    display: none;
-    position: absolute;
+.page {
     width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.slide img {
-    width: 100%;
-    height: auto;
+.page img {
+    width: 90%;
     border-radius: 10px;
 }
 
-.slide p {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-size: 20px;
+.page p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cover {
+    display: flex;
+    background: #ff99cc;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
 }
 
-/* Animation for Heart */
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
-
-/* Fade effect for Slideshow */
-.fade {
-    animation-name: fade;
-    animation-duration: 2s;
-}
-
-@keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Final Message Styles */
-#finalMessage {
-    display: none;
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.6);
-    border-radius: 10px;
+.final {
+    display: flex;
+    background: #ff6699;
+    color: white;
 }
