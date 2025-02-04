@@ -1,47 +1,46 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day</title>
+    <title>Valentine's Card</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="backgroundMusic" loop>
+        <source src="Nisai.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
-<!-- Initial Screen with Happy Valentine and Heart Button -->
-<div class="welcome-screen">
-    <h1>Happy Valentine's Day!</h1>
-    <div id="heart" class="heart-button">❤️</div>
-    <p>Click the heart to start!</p>
-</div>
-
-<!-- Slideshow (Initially Hidden) -->
-<div class="slideshow" style="display: none;">
-    <div class="slide fade">
-        <img src="chea3.jpg" alt="First Time">
-        <p>First Time 💕</p>
+    <div class="card-container">
+        <div class="card">
+            <div class="page cover">
+                <h1>Happy Valentine’s Day</h1>
+                <p>My Pookie Julie ❤️</p>
+                <button onclick="nextPage()">Open Card</button>
+            </div>
+            <div class="page">
+                <img src="chea3.jpg" alt="First Date">
+                <p>First Date 💕</p>
+                <button onclick="nextPage()">Next</button>
+            </div>
+            <div class="page">
+                <img src="chea1.jpg" alt="Holding Hands">
+                <p>Holding Hands💙💜</p>
+                <button onclick="nextPage()">Next</button>
+            </div>
+            <div class="page">
+                <img src="chea2.jpg" alt="Random Cute Moment">
+                <p>Random Cute Moment 😍</p>
+                <button onclick="nextPage()">Next</button>
+            </div>
+            <div class="page final">
+                <h2>I Love You So Muchhhh 💖</h2>
+            </div>
+        </div>
     </div>
-    <div class="slide fade">
-        <img src="chea1.jpg" alt="Holding Hands💙💜">
-        <p>Holding Hands💙💜</p>
-    </div>
-    <div class="slide fade">
-        <img src="chea2.jpg" alt="Random Cute Moment">
-        <p>Random Cute Moment 😍</p>
-    </div>
-</div>
 
-<!-- Final Message -->
-<div id="finalMessage" style="display: none;">
-    <h2>I Love You So Muchhhh 💖</h2>
-</div>
-
-<!-- Audio for Music -->
-<audio id="backgroundMusic" loop>
-    <source src="Nisai.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
