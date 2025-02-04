@@ -1,20 +1,33 @@
-<!-- script.js -->
-let currentPage = 0;
-const pages = document.querySelectorAll(".page");
-pages[currentPage].style.display = "flex";
+$(document).ready(function () {
+  let currentPage = 0;
+  const totalPages = 3;
 
-document.getElementById("backgroundMusic").play();
-
-function nextPage() {
-    if (currentPage < pages.length - 1) {
-        pages[currentPage].classList.add("flip-out");
-        setTimeout(() => {
-            pages[currentPage].style.display = "none";
-            pages[currentPage].classList.remove("flip-out");
-            currentPage++;
-            pages[currentPage].style.display = "flex";
-            pages[currentPage].classList.add("flip-in");
-            setTimeout(() => pages[currentPage].classList.remove("flip-in"), 600);
-        }, 600);
+  $('.container').click(function () {
+    if (currentPage < totalPages) {
+      if (currentPage > 0) {
+        $(`.page${currentPage}`).hide();
+      }
+      currentPage++;
+      $(`.page${currentPage}`).fadeIn();
+    } else {
+      $(`.page${currentPage}`).hide();
+      currentPage = 0;
     }
-}
+
+    // Play music on first click
+    if (currentPage === 1) {
+     
+ document.getElementById('valentineAudio').play();
+    }
+  });
+
+  $('.container').mouseenter(function () {
+    $('.card').stop().animate({
+      top: '-90px'
+    }, 'slow');
+  }).mouseleave(function () {
+    $('.card').stop().animate({
+      top: '5px'
+    }, 'slow');
+  });
+});
