@@ -1,46 +1,46 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Card</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Card</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <audio id="backgroundMusic" loop>
-        <source src="Nisai.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="card-container">
-        <div class="card">
-            <div class="page cover">
-                <h1>💖 Happy Valentine’s Day 💖</h1>
-                <p>My Pookie Julie ❤️</p>
-                <button class="open-button" onclick="nextPage()">💌 Open Card 💌</button>
-            </div>
-            <div class="page">
-                <h2>Our First Date 💕</h2>
-                <img src="chea3.jpg" alt="First Date">
-                <button class="turn-button" onclick="nextPage()">➡️ Turn Page</button>
-            </div>
-            <div class="page">
-                <h2>Holding Hands 💙💜</h2>
-                <img src="chea1.jpg" alt="Holding Hands">
-                <button class="turn-button" onclick="nextPage()">➡️ Turn Page</button>
-            </div>
-            <div class="page">
-                <h2>Random Cute Moment 😍</h2>
-                <img src="chea2.jpg" alt="Random Cute Moment">
-                <button class="turn-button" onclick="nextPage()">➡️ Turn Page</button>
-            </div>
-            <div class="page final">
-                <h2>I Love You So Muchhhh 💖</h2>
-            </div>
+  <div class="container">  
+    <div class="valentines">
+      <div class="envelope"></div>
+      <div class="front"></div>
+      <div class="card">
+        <!-- Pages with images and descriptions -->
+        <div class="page page1">
+          <img src="image1.jpg" alt="Image 1">
+          <p>Description for Image 1</p>
         </div>
+        <div class="page page2">
+          <img src="image2.jpg" alt="Image 2">
+          <p>Description for Image 2</p>
+        </div>
+        <div class="page page3">
+          <img src="image3.jpg" alt="Image 3">
+          <p>Description for Image 3</p>
+        </div>
+        <div class="text">Happy</br> Valentine's</br> Day!</div>
+        <div class="heart"></div>
+      </div>
+      <div class="hearts">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+      </div>
     </div>
+  </div>
+  <div class="shadow"></div>
+  <audio id="valentineAudio" src="your-audio-file.mp3"></audio>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
