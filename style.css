@@ -114,9 +114,9 @@ body {
   width: 330px;
   height: 25px;
   border-radius: 50%;
-  background-color: rgba(0,0,0,0.3);
-  top: 280px;
-  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 460px; /* Adjust this so it sits properly under the envelope */
+  left: 170;
   animation: scale 3s linear infinite;
   z-index: -1;
 }
