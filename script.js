@@ -17,21 +17,24 @@ $(document).ready(function () {
       card.addClass('pop-out');
       setTimeout(() => {
         // After pop-out animation, show first page
-        card.addClass('book');
         $('.page:first').fadeIn();
         currentPage = 1;
       }, 500);
     } else {
       // Subsequent clicks - cycle through pages
       if (currentPage < totalPages) {
-        $('.page').hide();
-        $(`.page:nth-child(${currentPage + 3})`).fadeIn(); // +3 to skip text and heart divs
-        currentPage++;
+        $('.page').fadeOut(300);
+        setTimeout(() => {
+          $(`.page:eq(${currentPage})`).fadeIn(300);
+          currentPage++;
+        }, 300);
       } else {
         // Reset to initial state
-        $('.page').hide();
-        card.removeClass('book pop-out');
-        currentPage = 0;
+        $('.page').fadeOut(300);
+        setTimeout(() => {
+          card.removeClass('pop-out');
+          currentPage = 0;
+        }, 300);
       }
     }
 
