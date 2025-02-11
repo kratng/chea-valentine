@@ -44,7 +44,7 @@ body {
 }
 
 .card {
-  position: absolute;
+  position: relative;
   background-color: #eae2b7;
   width: 270px;
   height: 170px;
@@ -53,6 +53,8 @@ body {
   box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .card:before {
