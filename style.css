@@ -139,21 +139,21 @@ body {
 
 /* Shadow position when card is popped out */
 .valentines .card.pop-out + .shadow {
-  transform: translateX(-50%) translateY(30px) scale(1.2);
+  transform: translateX(-50%) translateY(50px) scale(1.2);
   opacity: 0.4;
 }
 
 /* Update page dimensions */
 .page {
   position: absolute;
-  width: 270px; /* Match card width */
-  height: 400px; /* Match card height */
+  width: 100%; /* Match card width */
+  height: 100%; /* Match card height */
   top: 0;
   left: 0;
   background-color: #eae2b7;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
   padding: 15px;
   box-sizing: border-box;
   transform-style: preserve-3d;
@@ -189,7 +189,7 @@ body {
 /* New styles for the pop-out card effect */
 .card.pop-out {
   height: 400px; /* Expanded height */
-  transform: translateY(-150px) scale(1.2); /* Reduced scale from 1.5 to 1.2 */
+  transform: translateY(-200px) scale(1.2); /* Reduced scale from 1.5 to 1.2 */
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 

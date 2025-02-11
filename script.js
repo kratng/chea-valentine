@@ -14,21 +14,20 @@ $(document).ready(function () {
       // First click - pop out
       card.addClass('pop-out');
       setTimeout(() => {
-        // Show first page with fade effect
-        $('.page:first').fadeIn(600);
+        $('.page:first').fadeIn(600).addClass('active');
         currentPage = 1;
-      }, 300);
+      }, 600);
     } else {
-      // Cycle through pages with slide effect
+      // Cycle through pages
       if (currentPage < totalPages) {
-        $(`.page:eq(${currentPage - 1})`).fadeOut(300);
+        $('.page').removeClass('active').fadeOut(300);
         setTimeout(() => {
-          $(`.page:eq(${currentPage})`).fadeIn(600);
+          $(`.page:eq(${currentPage})`).fadeIn(600).addClass('active');
           currentPage++;
         }, 300);
       } else {
         // Reset to initial state
-        $('.page').fadeOut(300);
+        $('.page').removeClass('active').fadeOut(300);
         setTimeout(() => {
           card.removeClass('pop-out');
           currentPage = 0;
@@ -38,13 +37,13 @@ $(document).ready(function () {
 
     // Handle music
     const music = document.getElementById('valentine-music');
-    if (!musicPlayed) {
+    if (!musicPlayed && music) {
       music.play();
       musicPlayed = true;
     }
   });
 
-  // Improved hover effect with CSS transition
+  // Hover effect
   $('.valentines').hover(
     function() {
       if (!$('.card').hasClass('pop-out')) {
