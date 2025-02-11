@@ -6,6 +6,20 @@ $(document).ready(function () {
   // Hide all pages initially
   $(".page").hide();
 
+  // Hover effect
+  $('.valentines').hover(
+    function() {
+      if (!$('.card').hasClass('pop-out')) {
+        $('.card').stop().animate({ top: '-30px' }, 'slow');
+      }
+    },
+    function() {
+      if (!$('.card').hasClass('pop-out')) {
+        $('.card').stop().animate({ top: '5px' }, 'slow');
+      }
+    }
+  );
+
   $('.valentines').click(function (e) {
     e.preventDefault();
     const card = $('.card');
