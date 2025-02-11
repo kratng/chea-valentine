@@ -1,27 +1,25 @@
 $(document).ready(function () {
   let currentPage = 0;
-  const totalPages = $('.page').length; // Get actual number of pages
+  const totalPages = $('.page').length;
   let musicPlayed = false;
 
   // Hide all pages initially
   $(".page").hide();
 
-  // Click handler for the valentine card
   $('.valentines').click(function (e) {
     e.preventDefault();
     const card = $('.card');
     
-    // Toggle card animation
     if (!card.hasClass('pop-out')) {
-      // First click - pop out the card
+      // First click - pop out
       card.addClass('pop-out');
       setTimeout(() => {
-        // After pop-out animation, show first page
+        // Show first page
         $('.page:first').fadeIn();
         currentPage = 1;
       }, 500);
     } else {
-      // Subsequent clicks - cycle through pages
+      // Cycle through pages
       if (currentPage < totalPages) {
         $('.page').fadeOut(300);
         setTimeout(() => {
@@ -45,18 +43,4 @@ $(document).ready(function () {
       musicPlayed = true;
     }
   });
-
-  // Hover effect
-  $('.valentines').hover(
-    function () {
-      if (!$('.card').hasClass('pop-out')) {
-        $('.card').stop().animate({ top: '-90px' }, 'slow');
-      }
-    },
-    function () {
-      if (!$('.card').hasClass('pop-out')) {
-        $('.card').stop().animate({ top: '5px' }, 'slow');
-      }
-    }
-  );
 });
