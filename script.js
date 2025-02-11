@@ -1,54 +1,59 @@
 $(document).ready(function () {
   let currentPage = 0;
-  const totalPages = 3;
+  const totalPages = $('.page').length; // Get actual number of pages
   let musicPlayed = false;
 
-  // Hide all pages initially (except the letter)
+  // Hide all pages initially
   $(".page").hide();
-  $(".text").show(); // Show the Valentine's message
-  $(".heart").show(); // Show the heart button
 
-  $('.container').click(function () {
-    if (currentPage > 0) {
-      $(`.page${currentPage}`).hide();
+  // Click handler for the valentine card
+  $('.valentines').click(function (e) {
+    e.preventDefault();
+    const card = $('.card');
+    
+    // Toggle card animation
+    if (!card.hasClass('pop-out')) {
+      // First click - pop out the card
+      card.addClass('pop-out');
+      setTimeout(() => {
+        // After pop-out animation, show first page
+        card.addClass('book');
+        $('.page:first').fadeIn();
+        currentPage = 1;
+      }, 500);
     } else {
-      $(".text, .heart").hide(); // Hide the letter and heart on first click
+      // Subsequent clicks - cycle through pages
+      if (currentPage < totalPages) {
+        $('.page').hide();
+        $(`.page:nth-child(${currentPage + 3})`).fadeIn(); // +3 to skip text and heart divs
+        currentPage++;
+      } else {
+        // Reset to initial state
+        $('.page').hide();
+        card.removeClass('book pop-out');
+        currentPage = 0;
+      }
     }
 
-    currentPage++;
-
-    if (currentPage <= totalPages) {
-      $(`.page${currentPage}`).fadeIn();
-    } else {
-      // If all pages are viewed, return to the letter
-      $(".page").hide();
-      $(".text, .heart").fadeIn();
-      currentPage = 0;
-    }
-
-    // Play music only once
+    // Handle music
+    const music = document.getElementById('valentine-music');
     if (!musicPlayed) {
-      document.getElementById('valentineAudio').play();
+      music.play();
       musicPlayed = true;
     }
   });
 
-  $('.container').mouseenter(function () {
-    $('.card').stop().animate({ top: '-90px' }, 'slow');
-  }).mouseleave(function () {
-    $('.card').stop().animate({ top: '5px' }, 'slow');
-  });
-
-  document.querySelector('.valentines').addEventListener('click', function() {
-    const card = document.querySelector('.card');
-    card.classList.toggle('pop-out');
-    card.classList.toggle('book');
-    
-    const music = document.getElementById('valentine-music');
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
+  // Hover effect
+  $('.valentines').hover(
+    function () {
+      if (!$('.card').hasClass('pop-out')) {
+        $('.card').stop().animate({ top: '-90px' }, 'slow');
+      }
+    },
+    function () {
+      if (!$('.card').hasClass('pop-out')) {
+        $('.card').stop().animate({ top: '5px' }, 'slow');
+      }
     }
-  });
+  );
 });

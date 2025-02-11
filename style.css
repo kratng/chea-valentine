@@ -133,21 +133,28 @@ body {
   left: 0;
   background-color: #eae2b7;
   display: none;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .page img {
   width: 100%;
-  height: auto;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .page p {
   text-align: center;
   color: #003049;
+  margin-top: 10px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
 }
 
 /* New styles for the pop-out card effect */
 .card.pop-out {
-  transform: scale(1.2) rotate(0deg);
+  transform: translateY(-50px) scale(1.2);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -168,13 +175,14 @@ body {
 
 /* Styles for the book effect */
 .card.book {
-  transform: rotateY(180deg);
+  transform: translateY(-50px) scale(1.2) rotateY(180deg);
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
 .card.book .page {
   display: block;
+  backface-visibility: hidden;
 }
 
 .card.book .page:nth-child(1) {
