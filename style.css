@@ -163,3 +163,22 @@ body {
 .card.pop-out .heart:after {
   background-color: #f08080;
 }
+
+/* Styles for the book effect */
+.card.book {
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.book .page {
+  display: block;
+}
+
+.card.book .page:nth-child(1) {
+  transform: rotateY(0deg);
+}
+
+.card.book .page:nth-child(2) {
+  transform: rotateY(180deg);
+}

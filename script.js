@@ -40,6 +40,15 @@ $(document).ready(function () {
   });
 
   document.querySelector('.valentines').addEventListener('click', function() {
-    document.querySelector('.card').classList.toggle('pop-out');
+    const card = document.querySelector('.card');
+    card.classList.toggle('pop-out');
+    card.classList.toggle('book');
+    
+    const music = document.getElementById('valentine-music');
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
   });
 });
