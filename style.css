@@ -74,6 +74,7 @@ body {
   height: 400px;
   transform: translateY(-200px) scale(1.2);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:before {
@@ -87,27 +88,30 @@ body {
   top: 12px;
 }
 
+/* Update card text alignment */
 .text {
   position: absolute;
   font-family: 'Brush Script MT', cursive;
   font-size: 28px;
+  width: 100%;
   text-align: center;
   line-height: 25px;
-  top: 19px;
-  left: 85px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #003049;
 }
 
+/* Update heart position */
 .heart {
-  background-color: #d62828;
-  display: inline-block;
-  height: 30px;
-  margin: 0 10px;
-  position: relative;
-  top: 110px;
-  left: 105px;
-  transform: rotate(-45deg);
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
   width: 30px;
+  height: 30px;
+  background-color: #d62828;
+  margin: 0;
 }
 
 .heart:before,
@@ -156,7 +160,7 @@ body {
   opacity: 0.4;
 }
 
-/* Update page dimensions */
+/* Improve page transitions and image loading */
 .page {
   position: absolute;
   width: 100%; /* Match card width */
@@ -166,16 +170,18 @@ body {
   background-color: #eae2b7;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
   padding: 15px;
   box-sizing: border-box;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  display: none; /* Hide initially */
 }
 
 .page.active {
   opacity: 1;
   visibility: visible;
+  display: block; /* Show when active */
 }
 
 .page img {
@@ -183,9 +189,11 @@ body {
   height: 300px; /* Slightly reduced from 330px */
   object-fit: cover;
   border-radius: 8px;
-  margin: 0 auto;
+  margin: 15px auto;
   display: block;
-  transition: transform 0.6s ease;
+  transition: transform 0.4s ease;
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 .page:hover img {
@@ -254,6 +262,18 @@ body {
   100% { transform: translateY(0) rotate(-45deg); }
 }
 
+/* Add fade in animation for images */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Add decorative hearts */
 .bg-hearts {
   position: fixed;
@@ -292,4 +312,13 @@ body {
 .bg-heart:after {
   left: 10px;
   top: 0;
+}
+
+/* Preload images */
+.preload {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
 }

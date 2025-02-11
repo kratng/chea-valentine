@@ -3,6 +3,12 @@ $(document).ready(function () {
   const totalPages = $('.page').length;
   let musicPlayed = false;
 
+  // Preload images
+  $('.page img').each(function() {
+    const img = new Image();
+    img.src = $(this).attr('src');
+  });
+
   // Hide all pages initially
   $(".page").hide();
 
@@ -15,28 +21,27 @@ $(document).ready(function () {
       card.addClass('pop-out');
       // Wait for the card to pop out before showing the first page
       setTimeout(() => {
-        $('.text, .heart').fadeOut(300);
+        $('.text, .heart').fadeOut(200);
         setTimeout(() => {
-          $('.page:first').fadeIn(600).addClass('active');
+          $('.page:first').fadeIn(400).addClass('active');
           currentPage = 1;
-        }, 300);
-      }, 300);
+        }, 200);
+      }, 400);
     } else {
       // Cycle through pages with slide effect
       if (currentPage < totalPages) {
-        $('.page.active').fadeOut(300).removeClass('active');
-        setTimeout(() => {
-          $(`.page:eq(${currentPage})`).fadeIn(600).addClass('active');
+        $('.page.active').fadeOut(200, function() {
+          $(this).removeClass('active');
+          $(`.page:eq(${currentPage})`).fadeIn(400).addClass('active');
           currentPage++;
-        }, 300);
+        });
       } else {
         // Reset to initial state
-        $('.page.active').fadeOut(300);
-        setTimeout(() => {
+        $('.page.active').fadeOut(200, function() {
           card.removeClass('pop-out');
-          $('.text, .heart').fadeIn(600);
+          $('.text, .heart').fadeIn(400);
           currentPage = 0;
-        }, 300);
+        });
       }
     }
 
