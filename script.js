@@ -11,25 +11,30 @@ $(document).ready(function () {
     const card = $('.card');
     
     if (!card.hasClass('pop-out')) {
-      // First click - pop out
+      // First click - pop out and up
       card.addClass('pop-out');
+      // Wait for the card to pop out before showing the first page
       setTimeout(() => {
-        $('.page:first').fadeIn(600).addClass('active');
-        currentPage = 1;
-      }, 600);
+        $('.text, .heart').fadeOut(300);
+        setTimeout(() => {
+          $('.page:first').fadeIn(600).addClass('active');
+          currentPage = 1;
+        }, 300);
+      }, 300);
     } else {
-      // Cycle through pages
+      // Cycle through pages with slide effect
       if (currentPage < totalPages) {
-        $('.page').removeClass('active').fadeOut(300);
+        $('.page.active').fadeOut(300).removeClass('active');
         setTimeout(() => {
           $(`.page:eq(${currentPage})`).fadeIn(600).addClass('active');
           currentPage++;
         }, 300);
       } else {
         // Reset to initial state
-        $('.page').removeClass('active').fadeOut(300);
+        $('.page.active').fadeOut(300);
         setTimeout(() => {
           card.removeClass('pop-out');
+          $('.text, .heart').fadeIn(600);
           currentPage = 0;
         }, 300);
       }
@@ -38,27 +43,23 @@ $(document).ready(function () {
     // Handle music
     const music = document.getElementById('valentine-music');
     if (!musicPlayed && music) {
-      music.play();
+      music.play().catch(function(error) {
+        console.log("Music play failed:", error);
+      });
       musicPlayed = true;
     }
   });
 
-  // Hover effect
+  // Smooth hover effect
   $('.valentines').hover(
     function() {
       if (!$('.card').hasClass('pop-out')) {
-        $('.card').css({
-          'transform': 'translateY(-20px)',
-          'transition': 'transform 0.3s ease-out'
-        });
+        $('.card').addClass('hover-up');
       }
     },
     function() {
       if (!$('.card').hasClass('pop-out')) {
-        $('.card').css({
-          'transform': 'translateY(0)',
-          'transition': 'transform 0.3s ease-out'
-        });
+        $('.card').removeClass('hover-up');
       }
     }
   );
