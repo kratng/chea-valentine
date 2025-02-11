@@ -38,4 +38,8 @@ $(document).ready(function () {
   }).mouseleave(function () {
     $('.card').stop().animate({ top: '5px' }, 'slow');
   });
+
+  document.querySelector('.valentines').addEventListener('click', function() {
+    document.querySelector('.card').classList.toggle('pop-out');
+  });
 });

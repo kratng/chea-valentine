@@ -52,6 +52,7 @@ body {
   left: 15px;
   box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
   overflow: hidden;
+  transition: transform 0.5s ease-in-out;
 }
 
 .card:before {
@@ -140,4 +141,25 @@ body {
 .page p {
   text-align: center;
   color: #003049;
+}
+
+/* New styles for the pop-out card effect */
+.card.pop-out {
+  transform: scale(1.2) rotate(0deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card.pop-out .text {
+  font-size: 32px;
+  color: #d62828;
+}
+
+.card.pop-out .heart {
+  top: 130px;
+  left: 120px;
+}
+
+.card.pop-out .heart:before,
+.card.pop-out .heart:after {
+  background-color: #f08080;
 }
