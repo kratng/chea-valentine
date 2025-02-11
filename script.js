@@ -21,11 +21,10 @@ $(document).ready(function () {
       card.addClass('pop-out');
       // Wait for the card to pop out before showing the first page
       setTimeout(() => {
-        $('.text, .heart').fadeOut(200);
-        setTimeout(() => {
+        $('.text, .heart').fadeOut(200, function() {
           $('.page:first').fadeIn(400).addClass('active');
           currentPage = 1;
-        }, 200);
+        });
       }, 400);
     } else {
       // Cycle through pages with slide effect
@@ -38,9 +37,10 @@ $(document).ready(function () {
       } else {
         // Reset to initial state
         $('.page.active').fadeOut(200, function() {
-          card.removeClass('pop-out');
-          $('.text, .heart').fadeIn(400);
-          currentPage = 0;
+          $('.text, .heart').fadeIn(400, function() {
+            card.removeClass('pop-out');
+            currentPage = 0;
+          });
         });
       }
     }
