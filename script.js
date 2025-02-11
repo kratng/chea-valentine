@@ -4,7 +4,7 @@ $(document).ready(function () {
   let musicPlayed = false;
 
   // Hide all pages initially
-  $(".page").removeClass('active');
+  $(".page").hide();
 
   $('.valentines').click(function (e) {
     e.preventDefault();
@@ -14,20 +14,21 @@ $(document).ready(function () {
       // First click - pop out
       card.addClass('pop-out');
       setTimeout(() => {
-        // Show first page
-        $('.page').removeClass('active');
-        $('.page:first').addClass('active');
+        // Show first page with fade effect
+        $('.page:first').fadeIn(600);
         currentPage = 1;
       }, 300);
     } else {
-      // Cycle through pages
+      // Cycle through pages with slide effect
       if (currentPage < totalPages) {
-        $('.page').removeClass('active');
-        $(`.page:eq(${currentPage})`).addClass('active');
-        currentPage++;
+        $(`.page:eq(${currentPage - 1})`).fadeOut(300);
+        setTimeout(() => {
+          $(`.page:eq(${currentPage})`).fadeIn(600);
+          currentPage++;
+        }, 300);
       } else {
         // Reset to initial state
-        $('.page').removeClass('active');
+        $('.page').fadeOut(300);
         setTimeout(() => {
           card.removeClass('pop-out');
           currentPage = 0;
@@ -43,16 +44,22 @@ $(document).ready(function () {
     }
   });
 
-  // Hover effect
+  // Improved hover effect with CSS transition
   $('.valentines').hover(
     function() {
       if (!$('.card').hasClass('pop-out')) {
-        $('.card').stop().animate({ top: '-30px' }, 'slow');
+        $('.card').css({
+          'transform': 'translateY(-20px)',
+          'transition': 'transform 0.3s ease-out'
+        });
       }
     },
     function() {
       if (!$('.card').hasClass('pop-out')) {
-        $('.card').stop().animate({ top: '5px' }, 'slow');
+        $('.card').css({
+          'transform': 'translateY(0)',
+          'transition': 'transform 0.3s ease-out'
+        });
       }
     }
   );
